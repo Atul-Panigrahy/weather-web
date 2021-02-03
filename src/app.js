@@ -14,6 +14,8 @@ const forecast = require('./utils/forecast.js')
 
 const app = express()
 
+const port = process.env.PORT || 3000
+
 //define paths for express config.
 // const publicDirectoryPath = path.join(__dirname, '../public'); //used for hosting static page
 const publicDirectoryPath = path.join(__dirname, '../public'); // but we need dynamic one
@@ -150,8 +152,13 @@ app.get('*',(req,res) => {
     })
 })
 
+//for running locally on individual machine
+// app.listen(3000, () => {
+//     console.log('Server is up on port 3000');
+// });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log('Server is up on port '+port);
 });
+
 
